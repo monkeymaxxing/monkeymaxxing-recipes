@@ -1,0 +1,423 @@
+# The catalog of every recipe. Written by scripts/build_index.py from each recipe's frontmatter.
+# Never edit this file by hand: change the recipe, then run `python3 scripts/build_index.py`.
+recipes:
+  - id: "redis-cache-pool"
+    title: "Add a Redis cache pool"
+    category: services
+    path: services/redis-cache-pool.md
+    applies_to: [stack]
+    summary: "Adds a private, stateless Redis cache pool over WireGuard with Debian packages and MMWatchdog checks."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "static-site"
+    title: "Serve a static site alongside your app"
+    category: services
+    path: services/static-site.md
+    applies_to: [stack, solo]
+    summary: "Serves one static site, such as a docs or marketing site, from your existing servers through your existing Cloudflare Tunnel, with MMWatchdog checks."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+      solo: "v0.1.0"
+    vetted_method: review-only
+  - id: "domain-and-tls-expiry"
+    title: "Watch TLS certificates and DNS records"
+    category: watchdog-checks
+    path: watchdog-checks/domain-and-tls-expiry.md
+    applies_to: [stack, solo]
+    summary: "Adds a drop-in MMWatchdog check pack that warns before TLS certificates expire and verifies public DNS answers."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+      solo: "v0.1.0"
+    vetted_method: review-only
+  - id: "aws-ec2"
+    title: "AWS EC2"
+    category: providers
+    path: providers/aws-ec2.md
+    applies_to: [stack]
+    summary: "Run the Stack on AWS EC2 instances, with the five provider scripts and their fake-API tests."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: script-tests
+  - id: "digitalocean"
+    title: "DigitalOcean"
+    category: providers
+    path: providers/digitalocean.md
+    applies_to: [stack]
+    summary: "Run the Stack on DigitalOcean Droplets, with the five provider scripts and their fake-API tests."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: script-tests
+  - id: "google-compute-engine"
+    title: "Google Compute Engine"
+    category: providers
+    path: providers/google-compute-engine.md
+    applies_to: [stack]
+    summary: "Run the Stack on Google Compute Engine instances, with the five provider scripts and their fake-API tests."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: script-tests
+  - id: "scaleway"
+    title: "Scaleway Instances"
+    category: providers
+    path: providers/scaleway.md
+    applies_to: [stack]
+    summary: "Run the Stack on Scaleway Instances, with the five provider scripts and their fake-API tests."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: script-tests
+  - id: "vultr"
+    title: "Vultr Cloud Compute"
+    category: providers
+    path: providers/vultr.md
+    applies_to: [stack]
+    summary: "Run the Stack on Vultr Cloud Compute instances, with the five provider scripts and their fake-API tests."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: script-tests
+  - id: "django-pg"
+    title: "Run Django with PostgreSQL on the Stack"
+    category: frameworks
+    path: frameworks/django-pg.md
+    applies_to: [stack, solo]
+    summary: "Get a Django app with PostgreSQL ready to run on the Stack, with psycopg, Gunicorn and WhiteNoise assets."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "express-pg"
+    title: "Run Express with PostgreSQL on the Stack"
+    category: frameworks
+    path: frameworks/express-pg.md
+    applies_to: [stack, solo]
+    summary: "Get an Express app with PostgreSQL ready to run on the Stack, with the Stack database helper and the Node cluster."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "fastapi-pg"
+    title: "Run FastAPI with PostgreSQL on the Stack"
+    category: frameworks
+    path: frameworks/fastapi-pg.md
+    applies_to: [stack, solo]
+    summary: "Get a FastAPI app with PostgreSQL ready to run on the Stack, with psycopg pools and Gunicorn/Uvicorn workers."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "go-net-http-pgx"
+    title: "Run Go with net/http and pgx on the Stack"
+    category: frameworks
+    path: frameworks/go-net-http-pgx.md
+    applies_to: [stack, solo]
+    summary: "Get a Go app using net/http and pgx ready to run on the Stack, with native multi-host database connections."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "laravel-livewire-eloquent"
+    title: "Run Laravel, Livewire and Eloquent on the Stack"
+    category: frameworks
+    path: frameworks/laravel-livewire-eloquent.md
+    applies_to: [stack, solo]
+    summary: "Get a Laravel, Livewire and Eloquent app ready to run on the Stack, served by FrankenPHP."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "nextjs-prisma-pg"
+    title: "Run a Next.js app on the Stack"
+    category: frameworks
+    path: frameworks/nextjs-prisma-pg.md
+    applies_to: [stack, solo]
+    summary: "Get a Next.js app with PostgreSQL ready to run on the Stack, using standalone Node output and retained frontend assets."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "nuxt-pg"
+    title: "Run Nuxt with PostgreSQL on the Stack"
+    category: frameworks
+    path: frameworks/nuxt-pg.md
+    applies_to: [stack, solo]
+    summary: "Get a Nuxt app with PostgreSQL ready to run on the Stack, using the Nitro Node server and retained frontend assets."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "rails-pg"
+    title: "Run Rails with PostgreSQL on the Stack"
+    category: frameworks
+    path: frameworks/rails-pg.md
+    applies_to: [stack, solo]
+    summary: "Get a Rails app with PostgreSQL ready to run on the Stack, with Active Record, Puma and Propshaft assets."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "rust-axum-tokio-postgres"
+    title: "Run Rust with Axum and tokio-postgres on the Stack"
+    category: frameworks
+    path: frameworks/rust-axum-tokio-postgres.md
+    applies_to: [stack, solo]
+    summary: "Get a Rust app using Axum and tokio-postgres ready to run on the Stack, with native writable-server selection."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "sveltekit-pg"
+    title: "Run SvelteKit with PostgreSQL on the Stack"
+    category: frameworks
+    path: frameworks/sveltekit-pg.md
+    applies_to: [stack, solo]
+    summary: "Get a SvelteKit app with PostgreSQL ready to run on the Stack, using adapter-node and retained frontend assets."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "tanstack-start-pg"
+    title: "Run a TanStack Start app on the Stack"
+    category: frameworks
+    path: frameworks/tanstack-start-pg.md
+    applies_to: [stack, solo]
+    summary: "Get a TanStack Start app with PostgreSQL ready to run on the Stack, using a persistent Nitro Node server."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "base44-feasibility"
+    title: "Base44 migration feasibility"
+    category: migrations
+    path: migrations/base44-feasibility.md
+    applies_to: [stack, solo]
+    summary: "Checks whether a Base44 app can move to the Stack as a backend replacement project, against Base44 documentation."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-any-container-platform"
+    title: "Move from a platform you run yourself"
+    category: migrations
+    path: migrations/from-any-container-platform.md
+    applies_to: [stack, solo]
+    summary: "Move an app from a container platform you run yourself, keeping the old database until the new app works."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-bolt"
+    title: "Move a Bolt app to your own system"
+    category: migrations
+    path: migrations/from-bolt.md
+    applies_to: [stack, solo]
+    summary: "Move an app built in Bolt to the Stack, replacing the services Bolt supplied."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-coolify"
+    title: "Move from Coolify to your own system"
+    category: migrations
+    path: migrations/from-coolify.md
+    applies_to: [stack, solo]
+    summary: "Move a Coolify-hosted portal to the Stack, exporting resource settings, database rows and mounted files."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-docker-compose"
+    title: "Move a Docker Compose app to your own system"
+    category: migrations
+    path: migrations/from-docker-compose.md
+    applies_to: [stack, solo]
+    summary: "Move a team-owned Docker Compose app to the Stack, keeping accounts, private uploads and background work."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-dokku"
+    title: "Move from Dokku to your own system"
+    category: migrations
+    path: migrations/from-dokku.md
+    applies_to: [stack, solo]
+    summary: "Move a Dokku app, its workers, uploads and schedule to the Stack, with the database moved last."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-ecs"
+    title: "Move from Amazon ECS to your own system"
+    category: migrations
+    path: migrations/from-ecs.md
+    applies_to: [stack, solo]
+    summary: "Move an app from Amazon ECS to the Stack, replacing the AWS services the app uses."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-firebase"
+    title: "Move a Firebase app to your own system"
+    category: migrations
+    path: migrations/from-firebase.md
+    applies_to: [stack, solo]
+    summary: "Move a Firebase app to the Stack, replacing Firebase authentication, storage, functions and database."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-fly"
+    title: "Move from Fly.io to your own system"
+    category: migrations
+    path: migrations/from-fly.md
+    applies_to: [stack, solo]
+    summary: "Move an app from Fly.io to the Stack, with separate exports of data, objects, secrets and Machine settings."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-heroku"
+    title: "Move from Heroku to your own system"
+    category: migrations
+    path: migrations/from-heroku.md
+    applies_to: [stack, solo]
+    summary: "Move a Heroku customer portal to the Stack and prove the exported copy works on independent PostgreSQL and S3-compatible storage."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-kamal"
+    title: "Move a Kamal app to your own system"
+    category: migrations
+    path: migrations/from-kamal.md
+    applies_to: [stack, solo]
+    summary: "Move a Kamal-deployed Rails 8 app that already uses PostgreSQL and private S3-compatible storage to the Stack."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-kubernetes"
+    title: "Move from Kubernetes to your own system"
+    category: migrations
+    path: migrations/from-kubernetes.md
+    applies_to: [stack, solo]
+    summary: "Move an application out of Kubernetes to the Stack, with PostgreSQL moved last."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-lovable"
+    title: "Move a Lovable portal to your own system"
+    category: migrations
+    path: migrations/from-lovable.md
+    applies_to: [stack, solo]
+    summary: "Move a Lovable portal to the Stack, keeping the generated TanStack pages and replacing the backend."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-netlify"
+    title: "Move a Netlify app to your own system"
+    category: migrations
+    path: migrations/from-netlify.md
+    applies_to: [stack, solo]
+    summary: "Move a Netlify app to the Stack, including the Netlify Identity users who cannot export password hashes."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-railway"
+    title: "Move from Railway to your own system"
+    category: migrations
+    path: migrations/from-railway.md
+    applies_to: [stack, solo]
+    summary: "Move a Railway portal to the Stack after exporting PostgreSQL and private bucket objects."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-render"
+    title: "Move from Render to your own system"
+    category: migrations
+    path: migrations/from-render.md
+    applies_to: [stack, solo]
+    summary: "Rehearse moving a Render customer portal to PostgreSQL 17 and S3-compatible storage on the Stack."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-replit"
+    title: "Move a Replit app to your own system"
+    category: migrations
+    path: migrations/from-replit.md
+    applies_to: [stack, solo]
+    summary: "Rehearse moving a Replit customer portal to PostgreSQL and S3-compatible storage on the Stack."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-supabase"
+    title: "Move a Supabase app to your own system"
+    category: migrations
+    path: migrations/from-supabase.md
+    applies_to: [stack, solo]
+    summary: "Move a Supabase app to the Stack, replacing its managed services as well as its Postgres tables."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only
+  - id: "from-vercel"
+    title: "Rehearse a Vercel app migration"
+    category: migrations
+    path: migrations/from-vercel.md
+    applies_to: [stack, solo]
+    summary: "Rehearse a Vercel app migration, moving users, private files, jobs and service settings that a code export leaves behind."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-21"
+    vetted_against:
+      stack: "v0.3.0"
+    vetted_method: review-only

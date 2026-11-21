@@ -1,0 +1,29 @@
+name: Vetted fields guard
+
+# Runs from the base branch (pull_request_target) so a pull request cannot edit
+# scripts/lint_recipes.py or this workflow to bypass the check. Never checks out
+# or executes any file from the pull request: fetches PR Git objects read-only
+# and parses frontmatter as data with the base branch's own scripts.
+on:
+  pull_request_target:
+
+permissions:
+  contents: read
+
+jobs:
+  vetted-guard:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out trusted base branch only
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 0
+
+      - name: Fetch pull request commit objects (without checkout)
+        run: |
+          git fetch --no-tags origin "+refs/pull/${{ github.event.pull_request.number }}/head:refs/remotes/pr/head"
+
+      - name: Refuse pull request edits to vetted_* fields
+        run: |
+          python3 scripts/lint_recipes.py --check-pr-vetting "${{ github.event.pull_request.base.sha }}" refs/remotes/pr/head

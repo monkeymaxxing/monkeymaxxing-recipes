@@ -1,0 +1,28 @@
+name: Recipe checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Recipe Contract and links
+        run: python3 scripts/lint_recipes.py
+
+      - name: Check generated index.yml and README catalog
+        run: python3 scripts/build_index.py --check
+
+      - name: Run provider script tests
+        run: |
+          for test_file in providers/*/*_provider_scripts_test.py; do
+            echo "=== $test_file ==="
+            python3 "$test_file"
+          done
