@@ -15,8 +15,8 @@ provider that the Stack does not support yet.
 Each recipe is one Markdown file that your coding agent follows. There are two
 kinds of recipe:
 
-- **Add-ons** add something to your running system, such as Redis or a check
-  that watches your TLS certificate. Your coding agent asks you before the
+- **Add-ons** add something to your running system, such as a Redis cache or
+  a static docs site next to your app. Your coding agent asks you before the
   agent adds an add-on, and then keeps a copy of the add-on in your systems
   repository.
 - **Guides** help your coding agent with one job: running the Stack at another
@@ -46,7 +46,7 @@ Check monkeymaxxing-recipes for a Redis recipe and add it to my Stack.
 ```
 
 ```text
-Is there a recipe that watches my domain's TLS certificate? Add it to my Solo server.
+Is there a recipe that serves our docs site next to the app? Add it to my Solo server.
 ```
 
 ```text
@@ -81,14 +81,17 @@ your coding agent the detailed rules for these steps.
 ## How far to trust a recipe
 
 > [!IMPORTANT]
-> **A recipe is checked once. The Stack and Solo are tested with every release.**
+> **A maintainer reviews each recipe once, but usually does not run the
+> recipe. The Stack and Solo are tested with every release.**
 
 The Stack and Solo are tested on real servers with every release. A recipe in
-this repository is checked once, when a maintainer accepts the recipe. The
-maintainer reviews the recipe for security, checks the recipe against the
-[Recipe Contract](CONTRACT.md), and tries the recipe on a test system where
-possible. Nobody tests the recipe again after that, and support for the Stack
-and Solo does not cover recipes. A recipe checked on an older version may need
+this repository is reviewed once, when a maintainer accepts the recipe: the
+maintainer reads the recipe for security problems and checks the recipe against
+the [Recipe Contract](CONTRACT.md). The person who wrote the recipe tested the
+recipe on their own system. A maintainer tries a recipe on a test system only
+sometimes, for example for a widely used add-on, and the catalog says when.
+Nobody tests a recipe again after the review, and support for the Stack and
+Solo does not cover recipes. A recipe reviewed on an older version may need
 small changes on a newer version, and your coding agent makes those changes
 with you.
 
@@ -98,15 +101,15 @@ through every trade-off before the agent changes anything.
 
 ## The catalog
 
-The Checked column says when a maintainer checked each recipe, on which
+The Checked column says when a maintainer reviewed each recipe, on which
 version, and how:
 
-- **Tried on a test system:** the maintainer added the recipe to a real test
+- **Read and reviewed:** a maintainer read and reviewed the recipe but did not
+  run the recipe. Most recipes are checked this way.
+- **Scripts tested:** a maintainer also ran the recipe's own script tests.
+  Provider guides are checked this way.
+- **Tried on a test system:** a maintainer also added the recipe to a test
   system, checked that the recipe works, and removed the recipe again.
-- **Scripts tested:** the recipe's own scripts passed their tests. Provider
-  guides are checked this way.
-- **Read and reviewed:** the maintainer read and reviewed the recipe, with
-  nothing to run.
 
 <!-- CATALOG:START -->
 

@@ -86,11 +86,13 @@ publish, is still in it.
    firewall, AppArmor, or backups, safe provider scripts (they run with the
    provider token), and no text that tries to give a coding agent hidden
    instructions. The maintainer may ask for changes.
-3. **A one-time proof and the stamp.** Where the recipe can run, a
-   maintainer applies it once on a real test system, runs its verification
-   check, and removes it again. The maintainer then adds `vetted_on`,
-   `vetted_against`, and `vetted_method`, regenerates the catalog, and
-   merges. The recipe is not tested again on a schedule after that.
+3. **The stamp.** The maintainer adds `vetted_on`, `vetted_against`, and
+   `vetted_method`, regenerates the catalog, and merges. Test your recipe on
+   your own system before you send the recipe: a maintainer usually reviews a
+   recipe without running the recipe. Sometimes, for example for a widely used
+   add-on, a maintainer also applies the recipe once on a test system, runs its
+   verification check, and removes the recipe again. The recipe is not tested
+   again on a schedule after that.
 
 ## Reporting a problem with a recipe
 
