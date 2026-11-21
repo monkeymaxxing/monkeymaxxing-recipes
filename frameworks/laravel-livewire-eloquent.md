@@ -1,9 +1,9 @@
 ---
 id: laravel-livewire-eloquent
-title: Run Laravel, Livewire and Eloquent on the Stack
+title: Run Laravel with Livewire and Eloquent
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a Laravel, Livewire and Eloquent app ready to run on the Stack, served by FrankenPHP.
+summary: Gets a Laravel app with Livewire and Eloquent ready to deploy, served by FrankenPHP.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run Laravel, Livewire and Eloquent on the Stack
+# Run Laravel with Livewire and Eloquent
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

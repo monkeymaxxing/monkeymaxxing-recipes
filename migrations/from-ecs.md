@@ -3,7 +3,7 @@ id: from-ecs
 title: Move from Amazon ECS to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move an app from Amazon ECS to the Stack, replacing the AWS services the app uses.
+summary: Moves an app from Amazon ECS and replaces the AWS services the app uses.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

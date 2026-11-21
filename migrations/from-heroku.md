@@ -3,7 +3,7 @@ id: from-heroku
 title: Move from Heroku to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a Heroku customer portal to the Stack and prove the exported copy works on independent PostgreSQL and S3-compatible storage.
+summary: Moves a Heroku app, with its database and stored files, and checks that the copy works before you switch.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

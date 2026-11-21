@@ -1,9 +1,9 @@
 ---
 id: django-pg
-title: Run Django with PostgreSQL on the Stack
+title: Run Django with PostgreSQL
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a Django app with PostgreSQL ready to run on the Stack, with psycopg, Gunicorn and WhiteNoise assets.
+summary: Gets a Django app ready to deploy, with Gunicorn as the web server and WhiteNoise serving static files.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run Django with PostgreSQL on the Stack
+# Run Django with PostgreSQL
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

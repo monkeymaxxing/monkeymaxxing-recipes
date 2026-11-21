@@ -3,7 +3,7 @@ id: from-dokku
 title: Move from Dokku to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a Dokku app, its workers, uploads and schedule to the Stack, with the database moved last.
+summary: Moves a Dokku app with its workers, uploads, and scheduled jobs. The database moves last.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

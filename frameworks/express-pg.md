@@ -1,9 +1,9 @@
 ---
 id: express-pg
-title: Run Express with PostgreSQL on the Stack
+title: Run Express with PostgreSQL
 category: frameworks
 applies_to: [stack, solo]
-summary: Get an Express app with PostgreSQL ready to run on the Stack, with the Stack database helper and the Node cluster.
+summary: Gets an Express app ready to deploy, with the Stack's database helper and Node's cluster module.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run Express with PostgreSQL on the Stack
+# Run Express with PostgreSQL
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

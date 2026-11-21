@@ -1,9 +1,9 @@
 ---
 id: from-any-container-platform
-title: Move from a platform you run yourself
+title: Move from a container platform you run yourself
 category: migrations
 applies_to: [stack, solo]
-summary: Move an app from a container platform you run yourself, keeping the old database until the new app works.
+summary: Moves an app from a container platform you run yourself. The old database stays in use until the new app works.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Move from a platform you run yourself
+# Move from a container platform you run yourself
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

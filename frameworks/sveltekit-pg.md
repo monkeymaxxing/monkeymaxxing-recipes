@@ -1,9 +1,9 @@
 ---
 id: sveltekit-pg
-title: Run SvelteKit with PostgreSQL on the Stack
+title: Run SvelteKit with PostgreSQL
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a SvelteKit app with PostgreSQL ready to run on the Stack, using adapter-node and retained frontend assets.
+summary: Gets a SvelteKit app ready to deploy with adapter-node. The last release's frontend files stay available, so open pages keep working during a deploy.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run SvelteKit with PostgreSQL on the Stack
+# Run SvelteKit with PostgreSQL
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

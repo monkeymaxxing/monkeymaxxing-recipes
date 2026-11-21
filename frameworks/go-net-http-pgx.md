@@ -1,9 +1,9 @@
 ---
 id: go-net-http-pgx
-title: Run Go with net/http and pgx on the Stack
+title: Run Go with net/http and pgx
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a Go app using net/http and pgx ready to run on the Stack, with native multi-host database connections.
+summary: Gets a Go app ready to deploy. pgx reads the database address list as it is and finds the writable database server itself.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run Go with net/http and pgx on the Stack
+# Run Go with net/http and pgx
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

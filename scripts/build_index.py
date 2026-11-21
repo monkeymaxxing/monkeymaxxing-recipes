@@ -26,6 +26,12 @@ INDEX_HEADER = (
     '# Never edit this file by hand: change the recipe, then run `python3 scripts/build_index.py`.\n'
 )
 PRODUCT_NAMES = {'stack': 'Stack', 'solo': 'Solo'}
+# Plain words for each vetted_method in the README catalog; CONTRACT.md defines the methods.
+VETTED_METHOD_WORDS = {
+    'live-checkpoint': 'tried on a test system',
+    'script-tests': 'scripts tested',
+    'review-only': 'read and reviewed',
+}
 
 
 def load_recipes():
@@ -81,11 +87,16 @@ def link_label(text):
 
 def vetted_cell(recipe):
     if 'vetted_on' not in recipe:
-        return 'Not yet vetted'
-    releases = ', '.join('%s %s' % (PRODUCT_NAMES.get(product, product), release)
-                         for product, release in recipe.get('vetted_against', {}).items())
-    parts = [recipe['vetted_on'], releases, recipe.get('vetted_method', '')]
-    return ', '.join(part for part in parts if part)
+        return 'Not checked yet'
+    releases = ' and '.join('%s %s' % (PRODUCT_NAMES.get(product, product), release)
+                            for product, release in recipe.get('vetted_against', {}).items())
+    method = recipe.get('vetted_method', '')
+    text = recipe['vetted_on']
+    if releases:
+        text += ', on ' + releases
+    if method:
+        text += ': ' + VETTED_METHOD_WORDS.get(method, method)
+    return text
 
 
 def catalog_text(recipes):
@@ -99,7 +110,7 @@ def catalog_text(recipes):
         if not in_category:
             sections.append('%s\n\n%s_No recipes yet._\n' % (heading, about))
             continue
-        rows = ['| Recipe | What it does | Applies to | Vetted |', '| --- | --- | --- | --- |']
+        rows = ['| Recipe | What it does | Works with | Checked |', '| --- | --- | --- | --- |']
         for recipe in in_category:
             applies = ', '.join(PRODUCT_NAMES.get(product, product) for product in recipe['applies_to'])
             rows.append('| [%s](%s) | %s | %s | %s |' % (

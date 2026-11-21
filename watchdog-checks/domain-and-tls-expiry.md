@@ -3,7 +3,7 @@ id: domain-and-tls-expiry
 title: Watch TLS certificates and DNS records
 category: watchdog-checks
 applies_to: [stack, solo]
-summary: Adds a drop-in MMWatchdog check pack that warns before TLS certificates expire and verifies public DNS answers.
+summary: Adds MMWatchdog checks that warn before a TLS certificate expires and warn when a public DNS answer changes.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

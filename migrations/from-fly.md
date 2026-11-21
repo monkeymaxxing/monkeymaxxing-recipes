@@ -3,7 +3,7 @@ id: from-fly
 title: Move from Fly.io to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move an app from Fly.io to the Stack, with separate exports of data, objects, secrets and Machine settings.
+summary: Moves an app from Fly.io, exporting its database, stored files, secrets, and Machine settings one by one.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

@@ -1,9 +1,9 @@
 ---
 id: tanstack-start-pg
-title: Run a TanStack Start app on the Stack
+title: Run TanStack Start with PostgreSQL
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a TanStack Start app with PostgreSQL ready to run on the Stack, using a persistent Nitro Node server.
+summary: Gets a TanStack Start app ready to deploy as a long-running Nitro Node server.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run a TanStack Start app on the Stack
+# Run TanStack Start with PostgreSQL
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

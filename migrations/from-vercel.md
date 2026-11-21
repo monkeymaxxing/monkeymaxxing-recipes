@@ -1,9 +1,9 @@
 ---
 id: from-vercel
-title: Rehearse a Vercel app migration
+title: Move from Vercel to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Rehearse a Vercel app migration, moving users, private files, jobs and service settings that a code export leaves behind.
+summary: Moves a Vercel app, including the users, private files, jobs, and settings that a code export leaves behind.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Rehearse a Vercel app migration
+# Move from Vercel to your own system
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

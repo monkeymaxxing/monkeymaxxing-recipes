@@ -1,9 +1,9 @@
 ---
 id: rails-pg
-title: Run Rails with PostgreSQL on the Stack
+title: Run Rails with PostgreSQL
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a Rails app with PostgreSQL ready to run on the Stack, with Active Record, Puma and Propshaft assets.
+summary: Gets a Rails app ready to deploy, with Puma as the web server and Propshaft for assets.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run Rails with PostgreSQL on the Stack
+# Run Rails with PostgreSQL
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

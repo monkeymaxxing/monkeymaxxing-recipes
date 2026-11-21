@@ -3,7 +3,7 @@ id: aws-ec2
 title: AWS EC2
 category: providers
 applies_to: [stack]
-summary: Run the Stack on AWS EC2 instances, with the five provider scripts and their fake-API tests.
+summary: Runs the Stack on AWS EC2 instances.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

@@ -1,9 +1,9 @@
 ---
 id: fastapi-pg
-title: Run FastAPI with PostgreSQL on the Stack
+title: Run FastAPI with PostgreSQL
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a FastAPI app with PostgreSQL ready to run on the Stack, with psycopg pools and Gunicorn/Uvicorn workers.
+summary: Gets a FastAPI app ready to deploy, with psycopg connection pools and Gunicorn running Uvicorn workers.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run FastAPI with PostgreSQL on the Stack
+# Run FastAPI with PostgreSQL
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

@@ -1,9 +1,9 @@
 ---
 id: from-netlify
-title: Move a Netlify app to your own system
+title: Move from Netlify to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a Netlify app to the Stack, including the Netlify Identity users who cannot export password hashes.
+summary: Moves a Netlify app, including Netlify Identity users. Netlify cannot export their passwords, so those users set new ones.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Move a Netlify app to your own system
+# Move from Netlify to your own system
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

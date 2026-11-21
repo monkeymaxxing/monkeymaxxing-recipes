@@ -3,7 +3,7 @@ id: google-compute-engine
 title: Google Compute Engine
 category: providers
 applies_to: [stack]
-summary: Run the Stack on Google Compute Engine instances, with the five provider scripts and their fake-API tests.
+summary: Runs the Stack on Google Compute Engine instances.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

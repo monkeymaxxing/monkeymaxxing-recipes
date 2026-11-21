@@ -1,9 +1,9 @@
 ---
 id: nextjs-prisma-pg
-title: Run a Next.js app on the Stack
+title: Run Next.js with PostgreSQL
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a Next.js app with PostgreSQL ready to run on the Stack, using standalone Node output and retained frontend assets.
+summary: Gets a Next.js app ready to deploy as a standalone Node server. The last release's frontend files stay available, so open pages keep working during a deploy.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run a Next.js app on the Stack
+# Run Next.js with PostgreSQL
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

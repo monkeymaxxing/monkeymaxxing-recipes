@@ -3,7 +3,7 @@ id: from-render
 title: Move from Render to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Rehearse moving a Render customer portal to PostgreSQL 17 and S3-compatible storage on the Stack.
+summary: Moves a Render app, with its database and stored files, after a practice run.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

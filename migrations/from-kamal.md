@@ -1,9 +1,9 @@
 ---
 id: from-kamal
-title: Move a Kamal app to your own system
+title: Move from Kamal to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a Kamal-deployed Rails 8 app that already uses PostgreSQL and private S3-compatible storage to the Stack.
+summary: Moves a Rails app deployed with Kamal that already uses PostgreSQL and S3-compatible file storage.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Move a Kamal app to your own system
+# Move from Kamal to your own system
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

@@ -19,10 +19,10 @@ Every recipe starts with this YAML frontmatter:
 ```yaml
 ---
 id: redis-cache-pool
-title: Add a Redis cache pool
+title: Add a Redis cache
 category: services
 applies_to: [stack]
-summary: Adds a private Redis cache pool over WireGuard, with MMWatchdog checks.
+summary: Adds private Redis cache servers that your app reaches over WireGuard, with MMWatchdog checks.
 author: your-github-name
 vetted_on: 2026-11-25
 vetted_against:
@@ -34,10 +34,10 @@ vetted_method: live-checkpoint
 | Field | Rule |
 | --- | --- |
 | `id` | Lowercase letters, digits, and hyphens (`^[a-z0-9][a-z0-9-]*$`). The same as the file name without `.md`. Unique in the repository. |
-| `title` | A short title that says what the recipe does, such as "Add a Redis cache pool". |
+| `title` | A short title that says what the recipe does, such as "Add a Redis cache". |
 | `category` | `services`, `watchdog-checks`, `providers`, `frameworks`, or `migrations`. The same as the recipe's folder. |
 | `applies_to` | `[stack]`, `[solo]`, or `[stack, solo]`. |
-| `summary` | One sentence for the catalog table. |
+| `summary` | One or two short sentences for the catalog table: what the recipe does, in plain words. |
 | `author` | The author's GitHub name. First-party recipes use `monkeymaxxing`. |
 | `vetted_on` | The date a maintainer checked the recipe, as `YYYY-MM-DD`. |
 | `vetted_against` | The release each checked product was tested against, one line per checked product (a non-empty subset of `applies_to`), such as `stack: v0.3.0`. |

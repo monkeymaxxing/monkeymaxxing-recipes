@@ -1,52 +1,45 @@
 # Monkeymaxxing Recipes
 
-**The shared cookbook for the
+**Ready-made additions for the
 [Monkeymaxxing Stack](https://github.com/monkeymaxxing/monkeymaxxing-stack)
 and [Monkeymaxxing Solo](https://github.com/monkeymaxxing/monkeymaxxing-solo).
-Your coding agent reads a recipe, checks it, and adds it to your system.**
+Ask your coding agent for a recipe, and the agent adds the recipe to your
+system after you say yes.**
 
-The Stack and Solo stay small on purpose: Debian 13, Postgres 17,
-Cloudflare Tunnel, WireGuard, MMX, and MMWatchdog, with no setup menus.
-That is what keeps day one free of decisions. But real systems grow. One
-team needs a Redis cache, another needs a search engine, another wants a
-server provider that the core does not cover.
+The Stack and Solo start small on purpose. Every system gets the same parts:
+Debian 13, Postgres 17, Cloudflare Tunnel, WireGuard, MMX, and MMWatchdog, so
+you make no setup choices on day one. But systems grow. For example, one team
+needs a Redis cache, another needs a search engine, and another wants a server
+provider that the Stack does not support yet.
 
-Monkeymaxxing Recipes is where those additions live. Each recipe is one
-plain Markdown file that your coding agent can follow:
+Each recipe is one Markdown file that your coding agent follows. There are two
+kinds of recipe:
 
-| Folder | What the recipes in it do | Used by |
-| --- | --- | --- |
-| `services/` | Add a service on top of your system: a new server pool on the Stack (such as Redis or Meilisearch), or a small extra on Solo | Stack, Solo |
-| `watchdog-checks/` | Add MMWatchdog check packs: monitoring for an extra service, a domain, or your app's own health | Stack, Solo |
-| `providers/` | Run the Stack at a server provider beyond the core's Hetzner Cloud and OVHcloud | Stack |
-| `frameworks/` | Get an app in a given framework (Rails, Django, Laravel, Next.js, and others) ready to deploy | Stack, Solo |
-| `migrations/` | Move an app from a platform such as Heroku, Railway, Render, or Vercel | Stack, Solo |
+- **Add-ons** add something to your running system, such as Redis or a check
+  that watches your TLS certificate. Your coding agent asks you before the
+  agent adds an add-on, and then keeps a copy of the add-on in your systems
+  repository.
+- **Guides** help your coding agent with one job: running the Stack at another
+  server provider, preparing an app in your framework, or moving an app from a
+  platform such as Heroku. The agent reads the guide while the agent does that
+  job.
 
-Recipes only **add** to the core. A recipe never replaces Postgres,
-Cloudflare Tunnel, MMX, or MMWatchdog. See [What stays out](#what-stays-out).
+| Folder | Kind | What the recipes in the folder do | Works with |
+| --- | --- | --- | --- |
+| `services/` | Add-on | Add a service, such as a Redis cache or a static site next to your app | Stack, Solo |
+| `watchdog-checks/` | Add-on | Add MMWatchdog checks for an extra service, your domain, or your app's own health | Stack, Solo |
+| `providers/` | Guide | Run the Stack at a server provider other than Hetzner Cloud and OVHcloud | Stack |
+| `frameworks/` | Guide | Get a Rails, Django, Laravel, Next.js, or other app ready to deploy | Stack, Solo |
+| `migrations/` | Guide | Move an app from a platform such as Heroku, Railway, Render, or Vercel | Stack, Solo |
 
-> [!IMPORTANT]
-> **Recipes are not tested the way the core is.** There are three levels of trust:
->
-> 1. **The core: Monkeymaxxing Stack and Monkeymaxxing Solo.** Tested
->    continuously on real servers, maintained, and upgraded with each release.
-> 2. **Recipes in this repository.** A maintainer checks each recipe **once**,
->    when it is accepted: it follows the [Recipe Contract](CONTRACT.md), it
->    passes a security review, and, where possible, it is proven once on a real
->    test system. The recipe then records the date (`vetted_on`) and the Stack
->    or Solo version (`vetted_against`) of that check. After that, a recipe is
->    **not tested again on a schedule, and the core's support does not cover
->    it.** A recipe checked against an older version may need small changes on
->    a newer one. Your coding agent reads the recipe with you and adapts it.
-> 3. **Anything else:** a recipe from another website or repository, a pull
->    request that is not merged yet, or a change that swaps out a core part.
->    Your coding agent treats it as an untrusted proposal. It tells you so
->    plainly and walks you through every trade-off before it changes anything.
+Recipes only add to the Stack and Solo. A recipe never replaces Postgres,
+Cloudflare Tunnel, MMX, or MMWatchdog. [What stays out](#what-stays-out)
+explains why.
 
 ## How to use a recipe
 
-You do not need to clone this repository or learn its layout. Ask your
-coding agent in plain words, from your systems repository:
+Ask your coding agent in plain words, from your systems repository. You do not
+need to clone this repository.
 
 ```text
 Check monkeymaxxing-recipes for a Redis recipe and add it to my Stack.
@@ -60,144 +53,162 @@ Is there a recipe that watches my domain's TLS certificate? Add it to my Solo se
 Has my Redis recipe changed since I added it?
 ```
 
-Here is what the agent does, following the "Using a recipe" rules in your
-systems repository's `AGENTS.md`:
+For an add-on, your coding agent works in four steps:
 
-1. **Finds the recipe at a fixed commit.** The agent looks up the current
-   commit of this repository once, then reads `index.yml` and the recipe at
-   that exact commit. It never follows the moving `main` branch, so what you
-   approve is exactly what gets applied. If you cloned this repository, the
-   agent reads your clone instead.
-2. **Checks it and asks you first.** For `services/` and `watchdog-checks/`
-   recipes, the agent checks the recipe against the core's safety rules (no
-   open web or SSH ports, no secrets in Git, locked backups for stored data,
-   pinned software). Then it tells you in plain words what the recipe adds,
-   what it costs, how its data is backed up, and when it was last checked.
-   It waits for your yes. Guides in `frameworks/`, `migrations/`, and
-   `providers/` are reference documents, so the agent reads them during
-   setup without stopping to ask.
-3. **Copies it into your repository.** The agent copies a `services/` or
-   `watchdog-checks/` recipe into `custom_recipes/<id>.md` in your systems
-   repository, with the source address, the commit it came from
-   (`source_commit`), and the date it was applied. It then writes the real
-   files: a role, an MMWatchdog check file named `custom_<name>.yml`, and
-   entries in the `# --- Custom extensions ---` slots and the `custom:`
-   settings. It records the recipe under `custom_extensions:` in your
-   checklist, previews the change with `mmx dryrun`, applies it, and runs the
-   recipe's verification check.
-4. **Leaves it with you.** Your copy is never linked back to this repository,
-   so a change here never reaches your servers by itself. You can edit your
-   copy freely. Each recipe ends with clean removal steps, so you can take it
-   out again later.
+1. **Finds the add-on.** The agent reads the add-on at one fixed version of
+   this repository, so what you approve is exactly what gets applied.
+2. **Checks the add-on and asks you.** The agent checks the add-on against the
+   Stack's safety rules: no open web or SSH ports, no secrets in Git, locked
+   backups for stored data, and fixed software versions. Then the agent tells
+   you what the add-on adds, what the add-on costs, how its data is backed up,
+   and when a maintainer last checked the add-on. The agent waits for your yes.
+3. **Adds the add-on to your system.** The agent copies the add-on into your
+   systems repository, writes the changes, shows you a preview with
+   `mmx dryrun`, applies the changes, and runs the add-on's own check.
+4. **Leaves the copy with you.** Your copy belongs to you, so a later change in
+   this repository never reaches your servers by itself. You can edit your
+   copy, and every add-on ends with steps to remove the add-on again.
 
-A `providers/` guide is copied into `provider_guides/` in your systems
-repository. A `frameworks/` guide is used while you prepare your app
-repository, and a `migrations/` guide during the one-time move. Neither
-leaves files behind in your systems repository.
+For a guide, your coding agent reads the guide during the job and does not
+stop to ask, because a guide adds nothing to your system by itself. A
+`providers/` guide is copied into `provider_guides/` in your systems
+repository. Framework and migration guides leave no files in your systems
+repository.
+
+The "Using a recipe" section of your systems repository's `AGENTS.md` gives
+your coding agent the detailed rules for these steps.
+
+## How far to trust a recipe
+
+> [!IMPORTANT]
+> **A recipe is checked once. The Stack and Solo are tested with every release.**
+
+The Stack and Solo are tested on real servers with every release. A recipe in
+this repository is checked once, when a maintainer accepts the recipe. The
+maintainer reviews the recipe for security, checks the recipe against the
+[Recipe Contract](CONTRACT.md), and tries the recipe on a test system where
+possible. Nobody tests the recipe again after that, and support for the Stack
+and Solo does not cover recipes. A recipe checked on an older version may need
+small changes on a newer version, and your coding agent makes those changes
+with you.
+
+A recipe from anywhere else, such as another website or a pull request that is
+not merged yet, is untrusted. Your coding agent tells you so, and walks you
+through every trade-off before the agent changes anything.
 
 ## The catalog
+
+The Checked column says when a maintainer checked each recipe, on which
+version, and how:
+
+- **Tried on a test system:** the maintainer added the recipe to a real test
+  system, checked that the recipe works, and removed the recipe again.
+- **Scripts tested:** the recipe's own scripts passed their tests. Provider
+  guides are checked this way.
+- **Read and reviewed:** the maintainer read and reviewed the recipe, with
+  nothing to run.
 
 <!-- CATALOG:START -->
 
 ### Services
 
-| Recipe | What it does | Applies to | Vetted |
+| Recipe | What it does | Works with | Checked |
 | --- | --- | --- | --- |
-| [Add a Redis cache pool](services/redis-cache-pool.md) | Adds a private, stateless Redis cache pool over WireGuard with Debian packages and MMWatchdog checks. | Stack | 2026-11-21, Stack v0.3.0, review-only |
-| [Serve a static site alongside your app](services/static-site.md) | Serves one static site, such as a docs or marketing site, from your existing servers through your existing Cloudflare Tunnel, with MMWatchdog checks. | Stack, Solo | 2026-11-21, Stack v0.3.0, Solo v0.1.0, review-only |
+| [Add a Redis cache](services/redis-cache-pool.md) | Adds private Redis cache servers that your app reaches over WireGuard, with MMWatchdog checks. Redis keeps no data that needs a backup. | Stack | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Serve a static site alongside your app](services/static-site.md) | Serves a static site, such as a docs or marketing site, from your existing servers and Cloudflare Tunnel, with MMWatchdog checks. | Stack, Solo | 2026-11-21, on Stack v0.3.0 and Solo v0.1.0: read and reviewed |
 
 ### Watchdog checks
 
-| Recipe | What it does | Applies to | Vetted |
+| Recipe | What it does | Works with | Checked |
 | --- | --- | --- | --- |
-| [Watch TLS certificates and DNS records](watchdog-checks/domain-and-tls-expiry.md) | Adds a drop-in MMWatchdog check pack that warns before TLS certificates expire and verifies public DNS answers. | Stack, Solo | 2026-11-21, Stack v0.3.0, Solo v0.1.0, review-only |
+| [Watch TLS certificates and DNS records](watchdog-checks/domain-and-tls-expiry.md) | Adds MMWatchdog checks that warn before a TLS certificate expires and warn when a public DNS answer changes. | Stack, Solo | 2026-11-21, on Stack v0.3.0 and Solo v0.1.0: read and reviewed |
 
 ### Providers
 
 About these guides: [providers/README.md](providers/README.md).
 
-| Recipe | What it does | Applies to | Vetted |
+| Recipe | What it does | Works with | Checked |
 | --- | --- | --- | --- |
-| [AWS EC2](providers/aws-ec2.md) | Run the Stack on AWS EC2 instances, with the five provider scripts and their fake-API tests. | Stack | 2026-11-21, Stack v0.3.0, script-tests |
-| [DigitalOcean](providers/digitalocean.md) | Run the Stack on DigitalOcean Droplets, with the five provider scripts and their fake-API tests. | Stack | 2026-11-21, Stack v0.3.0, script-tests |
-| [Google Compute Engine](providers/google-compute-engine.md) | Run the Stack on Google Compute Engine instances, with the five provider scripts and their fake-API tests. | Stack | 2026-11-21, Stack v0.3.0, script-tests |
-| [Scaleway Instances](providers/scaleway.md) | Run the Stack on Scaleway Instances, with the five provider scripts and their fake-API tests. | Stack | 2026-11-21, Stack v0.3.0, script-tests |
-| [Vultr Cloud Compute](providers/vultr.md) | Run the Stack on Vultr Cloud Compute instances, with the five provider scripts and their fake-API tests. | Stack | 2026-11-21, Stack v0.3.0, script-tests |
+| [AWS EC2](providers/aws-ec2.md) | Runs the Stack on AWS EC2 instances. | Stack | 2026-11-21, on Stack v0.3.0: scripts tested |
+| [DigitalOcean](providers/digitalocean.md) | Runs the Stack on DigitalOcean Droplets. | Stack | 2026-11-21, on Stack v0.3.0: scripts tested |
+| [Google Compute Engine](providers/google-compute-engine.md) | Runs the Stack on Google Compute Engine instances. | Stack | 2026-11-21, on Stack v0.3.0: scripts tested |
+| [Scaleway Instances](providers/scaleway.md) | Runs the Stack on Scaleway Instances. | Stack | 2026-11-21, on Stack v0.3.0: scripts tested |
+| [Vultr Cloud Compute](providers/vultr.md) | Runs the Stack on Vultr Cloud Compute instances. | Stack | 2026-11-21, on Stack v0.3.0: scripts tested |
 
 ### Frameworks
 
 About these guides: [frameworks/README.md](frameworks/README.md).
 
-| Recipe | What it does | Applies to | Vetted |
+| Recipe | What it does | Works with | Checked |
 | --- | --- | --- | --- |
-| [Run Django with PostgreSQL on the Stack](frameworks/django-pg.md) | Get a Django app with PostgreSQL ready to run on the Stack, with psycopg, Gunicorn and WhiteNoise assets. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run Express with PostgreSQL on the Stack](frameworks/express-pg.md) | Get an Express app with PostgreSQL ready to run on the Stack, with the Stack database helper and the Node cluster. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run FastAPI with PostgreSQL on the Stack](frameworks/fastapi-pg.md) | Get a FastAPI app with PostgreSQL ready to run on the Stack, with psycopg pools and Gunicorn/Uvicorn workers. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run Go with net/http and pgx on the Stack](frameworks/go-net-http-pgx.md) | Get a Go app using net/http and pgx ready to run on the Stack, with native multi-host database connections. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run Laravel, Livewire and Eloquent on the Stack](frameworks/laravel-livewire-eloquent.md) | Get a Laravel, Livewire and Eloquent app ready to run on the Stack, served by FrankenPHP. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run a Next.js app on the Stack](frameworks/nextjs-prisma-pg.md) | Get a Next.js app with PostgreSQL ready to run on the Stack, using standalone Node output and retained frontend assets. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run Nuxt with PostgreSQL on the Stack](frameworks/nuxt-pg.md) | Get a Nuxt app with PostgreSQL ready to run on the Stack, using the Nitro Node server and retained frontend assets. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run Rails with PostgreSQL on the Stack](frameworks/rails-pg.md) | Get a Rails app with PostgreSQL ready to run on the Stack, with Active Record, Puma and Propshaft assets. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run Rust with Axum and tokio-postgres on the Stack](frameworks/rust-axum-tokio-postgres.md) | Get a Rust app using Axum and tokio-postgres ready to run on the Stack, with native writable-server selection. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run SvelteKit with PostgreSQL on the Stack](frameworks/sveltekit-pg.md) | Get a SvelteKit app with PostgreSQL ready to run on the Stack, using adapter-node and retained frontend assets. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Run a TanStack Start app on the Stack](frameworks/tanstack-start-pg.md) | Get a TanStack Start app with PostgreSQL ready to run on the Stack, using a persistent Nitro Node server. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
+| [Run Django with PostgreSQL](frameworks/django-pg.md) | Gets a Django app ready to deploy, with Gunicorn as the web server and WhiteNoise serving static files. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run Express with PostgreSQL](frameworks/express-pg.md) | Gets an Express app ready to deploy, with the Stack's database helper and Node's cluster module. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run FastAPI with PostgreSQL](frameworks/fastapi-pg.md) | Gets a FastAPI app ready to deploy, with psycopg connection pools and Gunicorn running Uvicorn workers. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run Go with net/http and pgx](frameworks/go-net-http-pgx.md) | Gets a Go app ready to deploy. pgx reads the database address list as it is and finds the writable database server itself. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run Laravel with Livewire and Eloquent](frameworks/laravel-livewire-eloquent.md) | Gets a Laravel app with Livewire and Eloquent ready to deploy, served by FrankenPHP. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run Next.js with PostgreSQL](frameworks/nextjs-prisma-pg.md) | Gets a Next.js app ready to deploy as a standalone Node server. The last release's frontend files stay available, so open pages keep working during a deploy. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run Nuxt with PostgreSQL](frameworks/nuxt-pg.md) | Gets a Nuxt app ready to deploy on the Nitro Node server. The last release's frontend files stay available, so open pages keep working during a deploy. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run Rails with PostgreSQL](frameworks/rails-pg.md) | Gets a Rails app ready to deploy, with Puma as the web server and Propshaft for assets. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run Rust with Axum and tokio-postgres](frameworks/rust-axum-tokio-postgres.md) | Gets a Rust app ready to deploy. The app finds the writable database server itself. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run SvelteKit with PostgreSQL](frameworks/sveltekit-pg.md) | Gets a SvelteKit app ready to deploy with adapter-node. The last release's frontend files stay available, so open pages keep working during a deploy. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run TanStack Start with PostgreSQL](frameworks/tanstack-start-pg.md) | Gets a TanStack Start app ready to deploy as a long-running Nitro Node server. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
 
 ### Migrations
 
 About these guides: [migrations/README.md](migrations/README.md).
 
-| Recipe | What it does | Applies to | Vetted |
+| Recipe | What it does | Works with | Checked |
 | --- | --- | --- | --- |
-| [Base44 migration feasibility](migrations/base44-feasibility.md) | Checks whether a Base44 app can move to the Stack as a backend replacement project, against Base44 documentation. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move from a platform you run yourself](migrations/from-any-container-platform.md) | Move an app from a container platform you run yourself, keeping the old database until the new app works. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move a Bolt app to your own system](migrations/from-bolt.md) | Move an app built in Bolt to the Stack, replacing the services Bolt supplied. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move from Coolify to your own system](migrations/from-coolify.md) | Move a Coolify-hosted portal to the Stack, exporting resource settings, database rows and mounted files. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move a Docker Compose app to your own system](migrations/from-docker-compose.md) | Move a team-owned Docker Compose app to the Stack, keeping accounts, private uploads and background work. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move from Dokku to your own system](migrations/from-dokku.md) | Move a Dokku app, its workers, uploads and schedule to the Stack, with the database moved last. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move from Amazon ECS to your own system](migrations/from-ecs.md) | Move an app from Amazon ECS to the Stack, replacing the AWS services the app uses. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move a Firebase app to your own system](migrations/from-firebase.md) | Move a Firebase app to the Stack, replacing Firebase authentication, storage, functions and database. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move from Fly.io to your own system](migrations/from-fly.md) | Move an app from Fly.io to the Stack, with separate exports of data, objects, secrets and Machine settings. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move from Heroku to your own system](migrations/from-heroku.md) | Move a Heroku customer portal to the Stack and prove the exported copy works on independent PostgreSQL and S3-compatible storage. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move a Kamal app to your own system](migrations/from-kamal.md) | Move a Kamal-deployed Rails 8 app that already uses PostgreSQL and private S3-compatible storage to the Stack. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move from Kubernetes to your own system](migrations/from-kubernetes.md) | Move an application out of Kubernetes to the Stack, with PostgreSQL moved last. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move a Lovable portal to your own system](migrations/from-lovable.md) | Move a Lovable portal to the Stack, keeping the generated TanStack pages and replacing the backend. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move a Netlify app to your own system](migrations/from-netlify.md) | Move a Netlify app to the Stack, including the Netlify Identity users who cannot export password hashes. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move from Railway to your own system](migrations/from-railway.md) | Move a Railway portal to the Stack after exporting PostgreSQL and private bucket objects. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move from Render to your own system](migrations/from-render.md) | Rehearse moving a Render customer portal to PostgreSQL 17 and S3-compatible storage on the Stack. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move a Replit app to your own system](migrations/from-replit.md) | Rehearse moving a Replit customer portal to PostgreSQL and S3-compatible storage on the Stack. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Move a Supabase app to your own system](migrations/from-supabase.md) | Move a Supabase app to the Stack, replacing its managed services as well as its Postgres tables. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
-| [Rehearse a Vercel app migration](migrations/from-vercel.md) | Rehearse a Vercel app migration, moving users, private files, jobs and service settings that a code export leaves behind. | Stack, Solo | 2026-11-21, Stack v0.3.0, review-only |
+| [Check whether a Base44 app can move](migrations/base44-feasibility.md) | Explains what a Base44 export leaves behind, so you can judge the work before you start. Based on the Base44 documentation only. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from a container platform you run yourself](migrations/from-any-container-platform.md) | Moves an app from a container platform you run yourself. The old database stays in use until the new app works. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Bolt to your own system](migrations/from-bolt.md) | Moves an app built in Bolt and replaces the services Bolt supplied. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Coolify to your own system](migrations/from-coolify.md) | Moves an app from Coolify, with its settings, database, and stored files. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Docker Compose to your own system](migrations/from-docker-compose.md) | Moves a Docker Compose app, with its user accounts, private uploads, and background jobs. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Dokku to your own system](migrations/from-dokku.md) | Moves a Dokku app with its workers, uploads, and scheduled jobs. The database moves last. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Amazon ECS to your own system](migrations/from-ecs.md) | Moves an app from Amazon ECS and replaces the AWS services the app uses. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Firebase to your own system](migrations/from-firebase.md) | Moves a Firebase app and replaces Firebase login, storage, functions, and database. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Fly.io to your own system](migrations/from-fly.md) | Moves an app from Fly.io, exporting its database, stored files, secrets, and Machine settings one by one. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Heroku to your own system](migrations/from-heroku.md) | Moves a Heroku app, with its database and stored files, and checks that the copy works before you switch. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Kamal to your own system](migrations/from-kamal.md) | Moves a Rails app deployed with Kamal that already uses PostgreSQL and S3-compatible file storage. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Kubernetes to your own system](migrations/from-kubernetes.md) | Moves an app out of Kubernetes. The database moves last. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Lovable to your own system](migrations/from-lovable.md) | Moves a Lovable app. The generated pages stay, and the backend is replaced. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Netlify to your own system](migrations/from-netlify.md) | Moves a Netlify app, including Netlify Identity users. Netlify cannot export their passwords, so those users set new ones. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Railway to your own system](migrations/from-railway.md) | Moves a Railway app, with its database and private stored files. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Render to your own system](migrations/from-render.md) | Moves a Render app, with its database and stored files, after a practice run. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Replit to your own system](migrations/from-replit.md) | Moves a Replit app, with its database and stored files, after a practice run. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Supabase to your own system](migrations/from-supabase.md) | Moves a Supabase app and replaces its login, storage, and other hosted services, not only its database. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Move from Vercel to your own system](migrations/from-vercel.md) | Moves a Vercel app, including the users, private files, jobs, and settings that a code export leaves behind. | Stack, Solo | 2026-11-21, on Stack v0.3.0: read and reviewed |
 
 <!-- CATALOG:END -->
 
-`index.yml` holds the same catalog for coding agents and scripts. Both are
-generated from each recipe's frontmatter, so they never disagree with the
-recipes.
+`index.yml` holds the same catalog for coding agents and scripts.
+`scripts/build_index.py` writes both catalogs from the recipe files, so the
+catalogs always match the recipes.
 
 ## What stays out
 
-Recipes add to the core; they never swap a core part. Replacing Postgres
-with MySQL, or Cloudflare Tunnel with a public web server, changes the
-security, backup, and recovery promises that the core is tested to keep.
-This repository does not hold recipes like that.
+Recipes add to the Stack and Solo, but a recipe never swaps out one of their
+parts. For example, replacing Postgres with MySQL, or Cloudflare Tunnel with a
+public web server, breaks the security, backup, and recovery promises that the
+Stack and Solo are tested to keep. This repository does not accept recipes like
+that.
 
-The Stack and Solo are open source and plain files, so you can still make
-such a change yourself with your coding agent. It is then your own design:
-the agent explains what you give up, and the core's tests and support no
-longer cover that part.
+You can still make such a change on your own system, because the Stack and Solo
+are open source and plain files. Your coding agent explains what you give up
+first. The changed part is then your own design, and the tests and support for
+the Stack and Solo no longer cover that part.
 
 ## Contributing
 
-Built something useful on your own Stack or Solo? Your coding agent can
-turn it into a recipe in a few minutes.
-[CONTRIBUTING.md](CONTRIBUTING.md) has a prompt you can paste. The
-[backlog](BACKLOG.md) lists the recipes people want most.
+Built something useful on your own Stack or Solo? Your coding agent can turn
+your work into a recipe. [CONTRIBUTING.md](CONTRIBUTING.md) has a prompt you can
+paste, and the [backlog](BACKLOG.md) lists the recipes people want most.
 
-| Document | What it gives you |
+| Document | What the document gives you |
 | --- | --- |
-| [CONTRACT.md](CONTRACT.md) | The rules every recipe follows: frontmatter, required sections, and the core rules it must keep |
-| [CONTRIBUTING.md](CONTRIBUTING.md) | How to send a recipe, and how it is checked |
-| [BACKLOG.md](BACKLOG.md) | Recipes we would love to have, in priority order |
+| [CONTRACT.md](CONTRACT.md) | The rules every recipe follows: the fields at the top of the file, the required sections, and the Stack rules a recipe must keep |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to send a recipe, and how a maintainer checks the recipe |
+| [BACKLOG.md](BACKLOG.md) | Recipes we would love to have, most wanted first |
 | [AGENTS.md](AGENTS.md) | Instructions for a coding agent working in this repository |
 
 ## License

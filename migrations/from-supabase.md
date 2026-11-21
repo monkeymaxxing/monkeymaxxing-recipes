@@ -1,9 +1,9 @@
 ---
 id: from-supabase
-title: Move a Supabase app to your own system
+title: Move from Supabase to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a Supabase app to the Stack, replacing its managed services as well as its Postgres tables.
+summary: Moves a Supabase app and replaces its login, storage, and other hosted services, not only its database.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Move a Supabase app to your own system
+# Move from Supabase to your own system
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

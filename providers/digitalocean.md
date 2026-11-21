@@ -3,7 +3,7 @@ id: digitalocean
 title: DigitalOcean
 category: providers
 applies_to: [stack]
-summary: Run the Stack on DigitalOcean Droplets, with the five provider scripts and their fake-API tests.
+summary: Runs the Stack on DigitalOcean Droplets.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

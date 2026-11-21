@@ -3,7 +3,7 @@ id: vultr
 title: Vultr Cloud Compute
 category: providers
 applies_to: [stack]
-summary: Run the Stack on Vultr Cloud Compute instances, with the five provider scripts and their fake-API tests.
+summary: Runs the Stack on Vultr Cloud Compute instances.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

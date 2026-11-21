@@ -1,9 +1,9 @@
 ---
 id: rust-axum-tokio-postgres
-title: Run Rust with Axum and tokio-postgres on the Stack
+title: Run Rust with Axum and tokio-postgres
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a Rust app using Axum and tokio-postgres ready to run on the Stack, with native writable-server selection.
+summary: Gets a Rust app ready to deploy. The app finds the writable database server itself.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run Rust with Axum and tokio-postgres on the Stack
+# Run Rust with Axum and tokio-postgres
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

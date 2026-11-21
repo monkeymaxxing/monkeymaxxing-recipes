@@ -3,7 +3,7 @@ id: from-railway
 title: Move from Railway to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a Railway portal to the Stack after exporting PostgreSQL and private bucket objects.
+summary: Moves a Railway app, with its database and private stored files.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

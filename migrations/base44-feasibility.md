@@ -1,9 +1,9 @@
 ---
 id: base44-feasibility
-title: Base44 migration feasibility
+title: Check whether a Base44 app can move
 category: migrations
 applies_to: [stack, solo]
-summary: Checks whether a Base44 app can move to the Stack as a backend replacement project, against Base44 documentation.
+summary: Explains what a Base44 export leaves behind, so you can judge the work before you start. Based on the Base44 documentation only.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Base44 migration feasibility
+# Check whether a Base44 app can move
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

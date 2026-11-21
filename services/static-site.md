@@ -3,7 +3,7 @@ id: static-site
 title: Serve a static site alongside your app
 category: services
 applies_to: [stack, solo]
-summary: Serves one static site, such as a docs or marketing site, from your existing servers through your existing Cloudflare Tunnel, with MMWatchdog checks.
+summary: Serves a static site, such as a docs or marketing site, from your existing servers and Cloudflare Tunnel, with MMWatchdog checks.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

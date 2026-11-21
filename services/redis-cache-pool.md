@@ -1,9 +1,9 @@
 ---
 id: redis-cache-pool
-title: Add a Redis cache pool
+title: Add a Redis cache
 category: services
 applies_to: [stack]
-summary: Adds a private, stateless Redis cache pool over WireGuard with Debian packages and MMWatchdog checks.
+summary: Adds private Redis cache servers that your app reaches over WireGuard, with MMWatchdog checks. Redis keeps no data that needs a backup.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Add a Redis cache pool
+# Add a Redis cache
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
@@ -565,7 +565,7 @@ Stack's "Using a recipe" says. Then add the entry to `custom_extensions:` in
 ```yaml
 # monkeymaxxing_stack_checklist.yml, in custom_extensions
   - id: redis-cache-pool
-    title: Add a Redis cache pool
+    title: Add a Redis cache
     recipe: services/redis-cache-pool.md
     source_url: https://github.com/monkeymaxxing/monkeymaxxing-recipes/blob/<SHA>/services/redis-cache-pool.md
     source_commit: "<SHA>"

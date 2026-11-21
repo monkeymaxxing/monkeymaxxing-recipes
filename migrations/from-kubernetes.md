@@ -3,7 +3,7 @@ id: from-kubernetes
 title: Move from Kubernetes to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move an application out of Kubernetes to the Stack, with PostgreSQL moved last.
+summary: Moves an app out of Kubernetes. The database moves last.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

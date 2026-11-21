@@ -1,9 +1,9 @@
 ---
 id: from-firebase
-title: Move a Firebase app to your own system
+title: Move from Firebase to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a Firebase app to the Stack, replacing Firebase authentication, storage, functions and database.
+summary: Moves a Firebase app and replaces Firebase login, storage, functions, and database.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Move a Firebase app to your own system
+# Move from Firebase to your own system
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

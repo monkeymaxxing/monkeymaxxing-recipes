@@ -1,9 +1,9 @@
 ---
 id: from-bolt
-title: Move a Bolt app to your own system
+title: Move from Bolt to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move an app built in Bolt to the Stack, replacing the services Bolt supplied.
+summary: Moves an app built in Bolt and replaces the services Bolt supplied.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Move a Bolt app to your own system
+# Move from Bolt to your own system
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

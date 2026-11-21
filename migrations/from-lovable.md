@@ -1,9 +1,9 @@
 ---
 id: from-lovable
-title: Move a Lovable portal to your own system
+title: Move from Lovable to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a Lovable portal to the Stack, keeping the generated TanStack pages and replacing the backend.
+summary: Moves a Lovable app. The generated pages stay, and the backend is replaced.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Move a Lovable portal to your own system
+# Move from Lovable to your own system
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

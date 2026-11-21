@@ -1,9 +1,9 @@
 ---
 id: nuxt-pg
-title: Run Nuxt with PostgreSQL on the Stack
+title: Run Nuxt with PostgreSQL
 category: frameworks
 applies_to: [stack, solo]
-summary: Get a Nuxt app with PostgreSQL ready to run on the Stack, using the Nitro Node server and retained frontend assets.
+summary: Gets a Nuxt app ready to deploy on the Nitro Node server. The last release's frontend files stay available, so open pages keep working during a deploy.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Run Nuxt with PostgreSQL on the Stack
+# Run Nuxt with PostgreSQL
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

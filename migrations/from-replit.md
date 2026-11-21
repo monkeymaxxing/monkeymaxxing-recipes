@@ -1,9 +1,9 @@
 ---
 id: from-replit
-title: Move a Replit app to your own system
+title: Move from Replit to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Rehearse moving a Replit customer portal to PostgreSQL and S3-compatible storage on the Stack.
+summary: Moves a Replit app, with its database and stored files, after a practice run.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Move a Replit app to your own system
+# Move from Replit to your own system
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.

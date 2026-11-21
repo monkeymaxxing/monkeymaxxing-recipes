@@ -3,7 +3,7 @@ id: from-coolify
 title: Move from Coolify to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a Coolify-hosted portal to the Stack, exporting resource settings, database rows and mounted files.
+summary: Moves an app from Coolify, with its settings, database, and stored files.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

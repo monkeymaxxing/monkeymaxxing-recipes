@@ -3,7 +3,7 @@ id: scaleway
 title: Scaleway Instances
 category: providers
 applies_to: [stack]
-summary: Run the Stack on Scaleway Instances, with the five provider scripts and their fake-API tests.
+summary: Runs the Stack on Scaleway Instances.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:

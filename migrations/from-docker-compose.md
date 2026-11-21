@@ -1,9 +1,9 @@
 ---
 id: from-docker-compose
-title: Move a Docker Compose app to your own system
+title: Move from Docker Compose to your own system
 category: migrations
 applies_to: [stack, solo]
-summary: Move a team-owned Docker Compose app to the Stack, keeping accounts, private uploads and background work.
+summary: Moves a Docker Compose app, with its user accounts, private uploads, and background jobs.
 author: monkeymaxxing
 vetted_on: 2026-11-21
 vetted_against:
@@ -11,7 +11,7 @@ vetted_against:
 vetted_method: review-only
 ---
 
-# Move a Docker Compose app to your own system
+# Move from Docker Compose to your own system
 
 > [!IMPORTANT]
 > Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
