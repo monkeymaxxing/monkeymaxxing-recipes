@@ -14,7 +14,7 @@ vetted_method: review-only
 # Check whether a Base44 app can move
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 Checked against official documentation on 2026-11-04.
 Base44 builds apps from prompts and supplies their hosted services.

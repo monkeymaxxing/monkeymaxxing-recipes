@@ -14,7 +14,7 @@ vetted_method: review-only
 # Run Go with net/http and pgx
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 This guide shows how Go apps using net/http and pgx follow the Stack's database and deployment rules.
 The customer portal exercises accounts, private records, documents, and background reports.

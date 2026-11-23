@@ -14,7 +14,7 @@ vetted_method: review-only
 # Run Rust with Axum and tokio-postgres
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 This guide shows how Rust apps using Axum and tokio-postgres follow the Stack's database and deployment rules.
 The customer portal exercises accounts, private records, documents, and background reports.

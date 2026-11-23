@@ -15,7 +15,7 @@ vetted_method: review-only
 # Watch TLS certificates and DNS records
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 This recipe adds one MMWatchdog check file. For each public name you list, it
 connects over TLS and warns you before the certificate expires. It can also

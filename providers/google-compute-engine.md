@@ -14,7 +14,7 @@ vetted_method: script-tests
 # Google Compute Engine
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 Compute Engine calls a server an **instance**, a size a **machine type**, and a location a **zone**, such as
 `europe-west4-a` in the Netherlands. Follow the shared

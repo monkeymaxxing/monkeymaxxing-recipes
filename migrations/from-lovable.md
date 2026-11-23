@@ -14,7 +14,7 @@ vetted_method: review-only
 # Move from Lovable to your own system
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 Keep the generated TanStack pages, export every backend component, and rehearse with a new Postgres database and private S3 bucket.
 

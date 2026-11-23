@@ -14,7 +14,7 @@ vetted_method: review-only
 # Move from Amazon ECS to your own system
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 ## Variances and guidance needs
 

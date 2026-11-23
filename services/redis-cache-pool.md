@@ -14,7 +14,7 @@ vetted_method: review-only
 # Add a Redis cache
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 This recipe adds one new server, `cache001`, that runs Redis as a cache for
 your apps. Redis is an in-memory store. Your apps keep copies of data that

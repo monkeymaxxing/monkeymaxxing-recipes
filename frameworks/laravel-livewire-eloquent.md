@@ -14,7 +14,7 @@ vetted_method: review-only
 # Run Laravel with Livewire and Eloquent
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 The [Laravel example](laravel-livewire-eloquent/) stores private customer records and documents, and generates record-count reports.
 Laravel handles accounts and requests. Livewire updates the records screen without a full page reload.

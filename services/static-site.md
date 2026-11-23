@@ -15,7 +15,7 @@ vetted_method: review-only
 # Serve a static site alongside your app
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 ## When to use this (and when you don't need it)
 

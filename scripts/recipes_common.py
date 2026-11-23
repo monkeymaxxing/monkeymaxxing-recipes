@@ -29,8 +29,8 @@ VETTED_METHODS = ['live-checkpoint', 'script-tests', 'review-only']
 
 TRUST_BANNER = [
     '> [!IMPORTANT]',
-    '> Vetted once on submission (`vetted_on`) against `vetted_against`. '
-    'Not routinely re-tested and outside core Stack/Solo support.',
+    '> Reviewed once when added. Recipes are not re-tested on every Stack or '
+    'Solo release and are outside core support.',
 ]
 
 

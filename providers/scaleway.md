@@ -14,7 +14,7 @@ vetted_method: script-tests
 # Scaleway Instances
 
 > [!IMPORTANT]
-> Vetted once on submission (`vetted_on`) against `vetted_against`. Not routinely re-tested and outside core Stack/Solo support.
+> Reviewed once when added. Recipes are not re-tested on every Stack or Solo release and are outside core support.
 
 Scaleway calls a server an **Instance**, a server type a **commercial type**, and a location a **zone**.
 Follow the shared [script contract](https://github.com/monkeymaxxing/monkeymaxxing-stack/blob/main/skills/monkeymaxxing-stack/systems_repository_template/server_management_scripts/README.md#write-the-teams-provider-scripts),
