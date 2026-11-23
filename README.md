@@ -118,13 +118,18 @@ version, and how:
 | Recipe | What it does | Works with | Checked |
 | --- | --- | --- | --- |
 | [Add a Redis cache](services/redis-cache-pool.md) | Adds private Redis cache servers that your app reaches over WireGuard, with MMWatchdog checks. Redis keeps no data that needs a backup. | Stack | 2026-11-21, on Stack v0.3.0: read and reviewed |
+| [Run scheduled app tasks with systemd timers](services/scheduled-tasks.md) | Runs your app's own commands on a schedule, such as a nightly cleanup, in a one-off container of the live release, on one server, with MMWatchdog checks for failed or missed runs. | Stack, Solo | 2026-11-23, on Stack v0.3.1 and Solo v0.1.0: tried on a test system |
+| [Add a Redis cache sidecar on Solo](services/solo-redis-sidecar.md) | Runs Redis as a cache in a locked-down container on solo01, on 127.0.0.1 only, with MMWatchdog checks. Redis keeps no data that needs a backup. | Solo | 2026-11-23, on Solo v0.1.0: tried on a test system |
 | [Serve a static site alongside your app](services/static-site.md) | Serves a static site, such as a docs or marketing site, from your existing servers and Cloudflare Tunnel, with MMWatchdog checks. | Stack, Solo | 2026-11-21, on Stack v0.3.0 and Solo v0.1.0: read and reviewed |
+| [Add Umami web analytics](services/umami-analytics.md) | Runs Umami, cookieless web analytics, in a locked-down container behind your Cloudflare Tunnel, with its data in your existing Postgres and its backups, and with MMWatchdog checks. | Stack, Solo | 2026-11-23, on Stack v0.3.1 and Solo v0.1.0: tried on a test system |
 
 ### Watchdog checks
 
 | Recipe | What it does | Works with | Checked |
 | --- | --- | --- | --- |
+| [Watch Postgres background job queues](watchdog-checks/background-job-queue.md) | Adds MMWatchdog checks that warn when jobs pile up in a Postgres-backed job queue, such as Solid Queue, GoodJob, Oban, or pg-boss, or wait too long to start. | Stack, Solo | 2026-11-23, on Stack v0.3.1 and Solo v0.1.0: tried on a test system |
 | [Watch TLS certificates and DNS records](watchdog-checks/domain-and-tls-expiry.md) | Adds MMWatchdog checks that warn before a TLS certificate expires and warn when a public DNS answer changes. | Stack, Solo | 2026-11-21, on Stack v0.3.0 and Solo v0.1.0: read and reviewed |
+| [Watch Postgres for table bloat and slow queries](watchdog-checks/postgres-bloat-and-slow-queries.md) | Adds MMWatchdog checks that warn when the apps' tables collect too many dead rows and when an app query is slow on average. | Stack, Solo | 2026-11-23, on Stack v0.3.1 and Solo v0.1.0: tried on a test system |
 
 ### Providers
 

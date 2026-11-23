@@ -12,6 +12,29 @@ recipes:
     vetted_against:
       stack: "v0.3.0"
     vetted_method: review-only
+  - id: "scheduled-tasks"
+    title: "Run scheduled app tasks with systemd timers"
+    category: services
+    path: services/scheduled-tasks.md
+    applies_to: [stack, solo]
+    summary: "Runs your app's own commands on a schedule, such as a nightly cleanup, in a one-off container of the live release, on one server, with MMWatchdog checks for failed or missed runs."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-23"
+    vetted_against:
+      stack: "v0.3.1"
+      solo: "v0.1.0"
+    vetted_method: live-checkpoint
+  - id: "solo-redis-sidecar"
+    title: "Add a Redis cache sidecar on Solo"
+    category: services
+    path: services/solo-redis-sidecar.md
+    applies_to: [solo]
+    summary: "Runs Redis as a cache in a locked-down container on solo01, on 127.0.0.1 only, with MMWatchdog checks. Redis keeps no data that needs a backup."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-23"
+    vetted_against:
+      solo: "v0.1.0"
+    vetted_method: live-checkpoint
   - id: "static-site"
     title: "Serve a static site alongside your app"
     category: services
@@ -24,6 +47,30 @@ recipes:
       stack: "v0.3.0"
       solo: "v0.1.0"
     vetted_method: review-only
+  - id: "umami-analytics"
+    title: "Add Umami web analytics"
+    category: services
+    path: services/umami-analytics.md
+    applies_to: [stack, solo]
+    summary: "Runs Umami, cookieless web analytics, in a locked-down container behind your Cloudflare Tunnel, with its data in your existing Postgres and its backups, and with MMWatchdog checks."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-23"
+    vetted_against:
+      stack: "v0.3.1"
+      solo: "v0.1.0"
+    vetted_method: live-checkpoint
+  - id: "background-job-queue"
+    title: "Watch Postgres background job queues"
+    category: watchdog-checks
+    path: watchdog-checks/background-job-queue.md
+    applies_to: [stack, solo]
+    summary: "Adds MMWatchdog checks that warn when jobs pile up in a Postgres-backed job queue, such as Solid Queue, GoodJob, Oban, or pg-boss, or wait too long to start."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-23"
+    vetted_against:
+      stack: "v0.3.1"
+      solo: "v0.1.0"
+    vetted_method: live-checkpoint
   - id: "domain-and-tls-expiry"
     title: "Watch TLS certificates and DNS records"
     category: watchdog-checks
@@ -36,6 +83,18 @@ recipes:
       stack: "v0.3.0"
       solo: "v0.1.0"
     vetted_method: review-only
+  - id: "postgres-bloat-and-slow-queries"
+    title: "Watch Postgres for table bloat and slow queries"
+    category: watchdog-checks
+    path: watchdog-checks/postgres-bloat-and-slow-queries.md
+    applies_to: [stack, solo]
+    summary: "Adds MMWatchdog checks that warn when the apps' tables collect too many dead rows and when an app query is slow on average."
+    author: "monkeymaxxing"
+    vetted_on: "2026-11-23"
+    vetted_against:
+      stack: "v0.3.1"
+      solo: "v0.1.0"
+    vetted_method: live-checkpoint
   - id: "aws-ec2"
     title: "AWS EC2"
     category: providers
